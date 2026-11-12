@@ -1,0 +1,235 @@
+/* =========================================
+   PRODUCT GALLERY
+   ========================================= */
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+
+  padding: 12px;
+  box-sizing: border-box;
+
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+/* =========================================
+   MAIN IMAGE
+   ========================================= */
+
+.product-gallery__main {
+  position: relative;
+
+  // Chiếm toàn bộ chiều cao còn lại của Gallery.
+  flex: 1;
+  min-height: 360px;
+  height: auto;
+
+  width: 100%;
+  overflow: hidden;
+
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-item {
+    text-align: center;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 42px;
+    height: 42px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    opacity: 1;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .carousel-control-prev {
+    left: 12px;
+  }
+
+  .carousel-control-next {
+    right: 12px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
+    filter: invert(30%) sepia(70%) saturate(3000%);
+  }
+}
+
+/* Ảnh chính luôn giữ đúng tỷ lệ */
+.product-gallery__image {
+  display: block;
+
+  width: 100%;
+  height: 339px;
+
+  object-fit: contain;
+  object-position: center;
+
+  cursor: zoom-in;
+
+  margin: 0 auto;
+}
+
+/* Bộ đếm ảnh */
+.product-gallery__counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 5;
+  padding: 4px 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+/* =========================================
+   THUMBNAIL CAROUSEL
+   ========================================= */
+
+/* Khung chứa hai nút điều hướng và danh sách ảnh nhỏ */
+.product-gallery__thumbnail-wrapper {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Nút cuộn ảnh trái/phải */
+.product-gallery__scroll-button {
+  display: flex;
+  flex: 0 0 36px;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  color: #7c3aed;
+  font-size: 16px;
+
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #fff;
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.product-gallery__thumbnails {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+
+  display: flex;
+  gap: 12px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  cursor: grab;
+  user-select: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.product-gallery__thumbnail {
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px;
+  overflow: hidden;
+
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    border-color: #8b5cf6;
+  }
+
+  /* Viền tím cho ảnh đang được chọn */
+  &.active {
+    border: 2px solid #7c3aed;
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .product-gallery__main {
+    height: 300px;
+  }
+
+  .product-gallery__image {
+    height: 270px;
+    max-width: 270px;
+  }
+
+  .product-gallery__thumbnail {
+    flex-basis: 60px;
+    width: 60px;
+    height: 60px;
+  }
+}
