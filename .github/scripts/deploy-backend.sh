@@ -8,7 +8,7 @@ LIVE="$BASE/target/backend-0.0.1-SNAPSHOT.jar"
 SERVICE="techvina-backend.service"
 BACKUP_DIR="$BASE/backups"
 
-BUCKET="techvina-backend-artifacts-2026"
+BUCKET="techvina-backend-artifacts-668668940018"
 REGION="ap-southeast-1"
 HEALTH_URL="http://127.0.0.1:8080/actuator/health"
 
